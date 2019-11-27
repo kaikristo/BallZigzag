@@ -47,6 +47,7 @@ public class GameCtrl : MonoBehaviour
 
         isStarting = true;
         scores = 0;
+        if (UICtrl.instance != null) UICtrl.instance.ShowScore();
         LevelGenerator.instance.ClearLevel();
         LevelGenerator.instance.GenerateStartField();
         for (int i = 0; i < 6; i++)

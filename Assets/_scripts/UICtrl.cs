@@ -12,8 +12,8 @@ public class UICtrl : MonoBehaviour
     [SerializeField]
     GameObject loseWindow;
 
-    const string scoreTitle = "Distance travelled : ";
-    const string scoreValues = " meters";
+    const string scoreTitle = "Gems collected : ";
+    
     private void Awake()
     {
         if (instance != null)
@@ -31,7 +31,7 @@ public class UICtrl : MonoBehaviour
 
     public void ShowScore()
     {
-        score.text = scoreTitle + GameCtrl.instance.Scores.ToString()+ scoreValues;
+        score.text = scoreTitle + GameCtrl.instance.Scores.ToString();
     }
 
     public void ShowLoseWindow()

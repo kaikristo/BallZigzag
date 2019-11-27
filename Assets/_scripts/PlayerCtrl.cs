@@ -69,8 +69,7 @@ public class PlayerCtrl : MonoBehaviour
             {
                 gameObject.transform.Translate(distance, 0, 0);
             }
-            GameCtrl.instance.Scores += distance;
-            if (uiCtrl != null) uiCtrl.ShowScore();
+            
         }
 
 

@@ -11,6 +11,7 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField]
     GameObject tilePrefab;
 
+
   
     private GameObject prev;
 
@@ -45,33 +46,37 @@ public class LevelGenerator : MonoBehaviour
             {
                 GameObject tile = Instantiate(tilePrefab, startPoint.transform);
                 tile.transform.localPosition = new Vector3(x - 1, 0, z - 1);
+                tile.GetComponent<Tile>().CanHaveGem = false;
                 if (x == 1 && z == 2) prev = tile;
             }
     }
     public void GenerateNext()
     {
         Direction direction = (Direction)UnityEngine.Random.Range(0, 2);
-
+        GameObject newTile = null;
         switch (direction)
         {
             case Direction.Forward:
-                {
-                    GameObject newTile = Instantiate(tilePrefab);
+                
+                    newTile = Instantiate(tilePrefab);
                     newTile.transform.localPosition = prev.transform.position + new Vector3(0, 0, 1);
                     prev = newTile;
 
                     break;
-                }
+                
             case Direction.Rigth:
-                {
-                    GameObject newTile = Instantiate(tilePrefab);
+                
+                    newTile = Instantiate(tilePrefab);
                     newTile.transform.localPosition = prev.transform.position + new Vector3(1, 0, 0);
                     prev = newTile;
                     break;
-                }
+                
             default:
                 break;
+            
         }
+        newTile.GetComponent<Tile>().CanHaveGem = true;
+
 
     }
 }
