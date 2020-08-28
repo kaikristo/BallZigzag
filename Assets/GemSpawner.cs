@@ -28,14 +28,9 @@ public class GemSpawner : MonoBehaviour
         }
     }
 
-    public void SpawnGem(Transform position)
+    public void Spawn(Transform position)
     {
         Instantiate(gemPrefab, position);
-    }
-    public void TryToSpawn(Transform position)
-    {
-        bool gem = UnityEngine.Random.Range(0, 100) > (100-gemSpawnChance) ? true : false;
-        if (gem) SpawnGem(position);
     }
 
 }
